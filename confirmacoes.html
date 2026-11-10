@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Confirmações – 1 aninho do Benjamim</title>
+<style>
+:root{--bg:#f6f7f4;--card:#fff;--tx:#1d2420;--mut:#66706a;--bd:#e0e5de;--ok:#2f7d1a;--okbg:#e2f3d9;--no:#b83227;--nobg:#fbe3e0;--ac:#5fa83a;--hd:#f6f7f4;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a16;--card:#1d2520;--tx:#eef2ee;--mut:#9aa59d;--bd:#2c372f;--ok:#8fd36d;--okbg:#22381a;--no:#ff8f84;--nobg:#401d19;--ac:#5fa83a;--hd:#141a16;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141a16;--card:#1d2520;--tx:#eef2ee;--mut:#9aa59d;--bd:#2c372f;--ok:#8fd36d;--okbg:#22381a;--no:#ff8f84;--nobg:#401d19;--ac:#5fa83a;--hd:#141a16;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hd);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--hd);padding:14px 16px 10px;border-bottom:1px solid var(--bd);z-index:9}
+.wrap{max-width:560px;margin:0 auto}
+h1{font-size:15px;margin:0 0 6px;color:var(--mut);font-weight:600}
+.big{font-size:38px;font-weight:800;line-height:1}
+.sub{font-size:15px;color:var(--mut);margin-left:8px}
+.bar{height:10px;background:var(--bd);border-radius:6px;margin:10px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .2s}
+.bar.over i{background:var(--no)}
+.meta{font-size:13px;color:var(--mut)}
+input[type=search],input[type=text]{width:100%;padding:11px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);font:inherit;margin-top:10px}
+.chips{display:flex;gap:6px;margin-top:10px;overflow-x:auto}
+.chip{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:20px;padding:6px 12px;font:inherit;font-size:14px}
+.chip.on{background:var(--ac);border-color:var(--ac);color:#fff}
+main{padding:10px 16px 40px}
+.row{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 8px 8px 12px;margin-bottom:8px}
+.row .n{color:var(--mut);font-size:12px;width:22px;flex:none}
+.row .nm{flex:1;min-width:0;font-weight:600;overflow-wrap:anywhere}
+.row button{border:1px solid var(--bd);background:transparent;color:var(--mut);border-radius:9px;padding:9px 11px;font:inherit;font-size:14px;min-width:46px}
+.row button.y.on{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
+.row button.x.on{background:var(--nobg);border-color:var(--no);color:var(--no);font-weight:700}
+.add{display:flex;gap:8px;margin-top:14px}
+.add input{margin:0}
+.add button{border:0;background:var(--ac);color:#fff;border-radius:10px;padding:0 16px;font:inherit;font-weight:700}
+#note{font-size:12px;color:var(--mut);margin-top:12px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Benjamim faz 1 aninho · 18/11 às 19h</h1>
+<div><span class="big" id="big"></span><span class="sub" id="sub"></span></div>
+<div class="bar" id="bar"><i></i></div>
+<div class="meta" id="st"></div>
+<div class="meta" id="proj"></div>
+<input type="search" id="q" placeholder="Buscar nome…" autocomplete="off">
+<div class="chips" id="chips"></div>
+</div></header>
+<main><div class="wrap">
+<div id="app"></div>
+<div class="add"><input type="text" id="add" placeholder="Adicionar convidado…"><button id="addb">Adicionar</button></div>
+<div id="note"></div>
+</div></main>
+<script type="application/json" id="data">[]</script>
+<script>
+const CAP=80;
+let G=JSON.parse(document.getElementById('data').textContent);
+if(!G.length){G="Jaqueline,Carolina,Jorge,Renata,Selma,Alba,Zé,Katia,Paulo,Aurora,Renata,Leonardo,Leonardo Panacola,Zói,Renato,Claudia,Gabriele,Juliana,Jefferson,Dayane,Christyan,Jeniffer,Arthur,Davi,Letícia,Sarah,Eloah,Thayse,Amanda,Patrícia,Marcelo,Yago,Matheus,Lanna,Amélia,Márcia,Alexandre,Pedro,Mara,Beto,Marcio,Igor,Isabelly,Tio Rei,Tia Sônia,Lucas,Célia,Léo,Aninha,Tavares,Dn Cleide,Isa,Igor,Andressa,Guilherme,Manu,Jamilles,Camile,Rui,Tia Paula,Laíse,Eduardo,João Gabriel,Bia,Meline,Jurema,Marido,Hellen,Albert,Eliane,José,Anna Karen,Gabriel,Luana,Tio Rogério,Lua,Rafael,João,Maria Flor,Flora,Felipe,Manu,Vivi,Valéria,Marlon,Larissa,Gabriel,Vô Sardinha,Léo,Thamires,Maiane,Winston".split(",").map(n=>({n:n,s:"p"}));}
+const $=id=>document.getElementById(id);
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let filter="all",art=null,timer=null;
+try{filter=sessionStorage.getItem("f")||"all"}catch(e){}
+const cnt=s=>G.filter(g=>g.s===s).length;
+function render(){
+  const c=cnt("c"),x=cnt("x"),p=cnt("p"),left=CAP-c;
+  $("big").textContent=c+" / "+CAP;
+  $("sub").textContent=left>=0?"faltam "+left+" vagas":(-left)+" acima do limite";
+  $("bar").firstChild.style.width=Math.min(100,c/CAP*100)+"%";
+  $("bar").classList.toggle("over",left<0);
+  $("st").textContent=p+" pendentes · "+x+" não vão · "+G.length+" convidados";
+  $("proj").textContent="Se todos os pendentes vierem: "+(c+p)+" pessoas";
+  const defs=[["all","Todos",G.length],["p","Pendentes",p],["c","Confirmados",c],["x","Não vão",x]];
+  $("chips").innerHTML=defs.map(d=>'<button class="chip'+(filter===d[0]?" on":"")+'" data-f="'+d[0]+'">'+d[1]+" "+d[2]+"</button>").join("");
+  const q=norm($("q").value.trim());
+  $("app").innerHTML=G.map((g,i)=>({g:g,i:i})).filter(o=>(filter==="all"||o.g.s===filter)&&(!q||norm(o.g.n).includes(q))).map(o=>
+    '<div class="row"><span class="n">'+(o.i+1)+'</span><span class="nm">'+esc(o.g.n)+'</span>'+
+    '<button class="y'+(o.g.s==="c"?" on":"")+'" data-i="'+o.i+'" data-s="c">Vai</button>'+
+    '<button class="x'+(o.g.s==="x"?" on":"")+'" data-i="'+o.i+'" data-s="x">Não</button></div>').join("");
+}
+function save(){
+  clearTimeout(timer);
+  timer=setTimeout(async()=>{
+    if(!art)return;
+    try{
+      sessionStorage.setItem("y",String(window.scrollY));sessionStorage.setItem("f",filter);
+      const c=document.documentElement.cloneNode(true);
+      c.querySelector("#data").textContent=JSON.stringify(G).replace(/</g,"\\u003c");
+      c.querySelector("#app").innerHTML="";c.querySelector("#chips").innerHTML="";
+      await art.publish("<!doctype html>\n"+c.outerHTML);
+    }catch(e){$("note").textContent="Não consegui salvar a última alteração."}
+  },1500);
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.f){filter=b.dataset.f;try{sessionStorage.setItem("f",filter)}catch(_){}render();return}
+  if(b.dataset.i){const g=G[+b.dataset.i];g.s=g.s===b.dataset.s?"p":b.dataset.s;render();save()}
+});
+$("q").addEventListener("input",render);
+function addGuest(){const v=$("add").value.trim();if(!v)return;G.push({n:v,s:"p"});$("add").value="";render();save()}
+$("addb").addEventListener("click",addGuest);
+$("add").addEventListener("keydown",e=>{if(e.key==="Enter")addGuest()});
+render();
+try{const y=+sessionStorage.getItem("y");if(y)window.scrollTo(0,y)}catch(e){}
+try{
+  if(window.claude&&claude.use){claude.use("artifact").then(a=>{art=a;if(!a)$("note").textContent="Salvamento automático indisponível nesta visualização."}).catch(()=>{})}
+}catch(e){}
+</script>
+</body>
+</html>
